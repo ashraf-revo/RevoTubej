@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.revo.Config.Env",
+      "name": "org.revo.env",
+      "type": "org.revo.Config.Env"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.revo.Config.Env",
+      "name": "org.revo.env.users",
+      "type": "java.util.List<org.revo.Domain.User>"
+    },
+    {
+      "sourceType": "org.revo.Config.Env",
+      "name": "org.revo.env.users",
+      "type": "java.util.List<org.revo.Domain.User>"
+    }
+  ]
+}

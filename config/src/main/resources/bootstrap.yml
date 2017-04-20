@@ -1,0 +1,16 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shard
+  profiles:
+    active: native
+security:
+  user:
+    password: config
+    name: config

@@ -1,0 +1,37 @@
+server:
+  port: 8888
+  context-path: /tube
+spring:
+  application:
+    name: tube
+  cloud:
+    config:
+      uri: http://localhost:8081
+      password: config
+      username: config
+  datasource:
+    url: jdbc:mysql://localhost:3306/python?user=root&password=
+  http:
+    multipart:
+      max-file-size: 10MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+cloud:
+  aws:
+   credentials:
+     accessKey: AKIAJ65XDQDV52UWVL2A
+     secretKey: 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
+   region:
+     auto: false
+     static: eu-west-1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+security:
+  oauth2:
+    resource:
+       user-info-uri: http://localhost:9999/uaa/user
