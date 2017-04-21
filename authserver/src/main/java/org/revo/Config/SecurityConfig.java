@@ -23,11 +23,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/home").authenticated()
-                .and().formLogin().loginPage("/signin")
+
+        http
+                .authorizeRequests()
+                .antMatchers("/", "/done", "/active/*", "/signin", "/signup", "/signout", "/user").permitAll()
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/signin").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-                .and().requestMatchers().antMatchers( "/css/**","/","/done","/active/*","/signin","/signup", "/signout", "/oauth/authorize", "/oauth/confirm_access");
+                .and()
+                .requestMatchers().antMatchers("/home", "/css/**", "/", "/done", "/active/*", "/signin", "/signup", "/signout", "/oauth/authorize", "/oauth/confirm_access", "/oauth/check_token");
+
     }
 
     @Bean
