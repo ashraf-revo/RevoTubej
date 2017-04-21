@@ -25,14 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
-                .authorizeRequests()
-                .antMatchers("/", "/done", "/active/*", "/signin", "/signup", "/signout", "/user").permitAll()
-                .anyRequest().authenticated()
+                .authorizeRequests().antMatchers("/home", "/user").authenticated().anyRequest().permitAll()
                 .and().formLogin().loginPage("/signin").permitAll()
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-                .and()
-                .requestMatchers().antMatchers("/home", "/css/**", "/", "/done", "/active/*", "/signin", "/signup", "/signout", "/oauth/authorize", "/oauth/confirm_access", "/oauth/check_token");
-
+                .and().requestMatchers().antMatchers("/home", "/css/**", "/", "/done", "/active/*", "/signin", "/signup", "/signout", "/oauth/authorize", "/oauth/confirm_access", "/oauth/check_token");
     }
 
     @Bean

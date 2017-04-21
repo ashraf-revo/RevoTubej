@@ -34,3 +34,6 @@ org:
          password: $2a$10$nMXQGWFcd01aMI67ubPVrO5oq5rByWzlp.ZKj8mT/S7upiiyrmkhC
          phone: 1120266849
          type: 111
+logging:
+  level:
+    org.springframework: debug

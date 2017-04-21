@@ -25,7 +25,7 @@ public class MainController {
     private UserService userService;
 
     @RequestMapping("/oauth/confirm_access")
-    public ModelAndView getAccessConfirmation(@ModelAttribute AuthorizationRequest clientAuth) {
+    public ModelAndView getAccessConfirmation(@ModelAttribute AuthorizationRequest clientAuth,Principal user) {
         return new ModelAndView("access_confirmation").addObject("auth_request", clientAuth)
                 .addObject("client", clientDetailsService.loadClientByClientId(clientAuth.getClientId()));
     }
