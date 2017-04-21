@@ -30,7 +30,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         clients.inMemory().withClient("revo")
                 .authorizedGrantTypes("authorization_code")
                 .scopes("read", "write")
-                .autoApprove("read")
+//                .autoApprove("read")
                 .secret("revo");
     }
 
