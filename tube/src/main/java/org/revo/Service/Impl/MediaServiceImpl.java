@@ -29,7 +29,6 @@ public class MediaServiceImpl implements MediaService {
     @Override
     public Media save(MultipartFile file) {
         String key = UUID.randomUUID().toString().replace("-", "") + "." + StringUtils.getFilenameExtension(file.getOriginalFilename());
-        s3Service.saveMedia(key, file);
         Media media = new Media();
         media.setMediaKey(key);
         return mediaRepository.save(media);

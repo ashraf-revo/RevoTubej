@@ -1,10 +1,12 @@
 package org.revo.Config;
 
+import org.revo.Service.UserService;
 import org.revo.Util.Hls;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.AuditorAware;
 
 import java.io.File;
 
@@ -21,4 +23,8 @@ public class UtilConfig {
         };
     }
 
+    @Bean
+    public AuditorAware<Long> aware(UserService userService) {
+        return userService::current;
+    }
 }

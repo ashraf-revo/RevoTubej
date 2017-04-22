@@ -24,7 +24,7 @@ import static org.revo.Domain.Role.*;
 @MappedSuperclass
 @Getter
 @Setter
-public abstract class BaseUser extends BaseEntity implements UserDetails {
+public abstract class BaseUser  implements UserDetails {
     @JsonProperty(access = READ_ONLY)
     private boolean locked = true;
     @JsonProperty(access = READ_ONLY)

@@ -5,14 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
+
+import java.util.Date;
 
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.READ_ONLY;
 import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
@@ -25,8 +27,13 @@ import static com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "media_user")
 public class User extends BaseUser {
+    @Id
+    @GenericGenerator(name = "wikiSequenceGenerator", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator")
+    @GeneratedValue(generator = "wikiSequenceGenerator")
+    private Long id;
     @NotBlank
     @Column(length = 40)
     private String name;
@@ -47,6 +54,8 @@ public class User extends BaseUser {
     @JsonProperty(access = WRITE_ONLY)
     @Transient
     private String currentPassword;
+    @CreatedDate
+    private Date createdDate = new Date();
 
     @Transient
     @JsonProperty(access = WRITE_ONLY)
