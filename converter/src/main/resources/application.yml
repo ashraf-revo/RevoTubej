@@ -1,0 +1,36 @@
+server:
+  port: 0
+  context-path: /converter
+spring:
+  application:
+    name: converter
+  cloud:
+    config:
+      uri: http://localhost:8081
+      password: config
+      username: config
+#    stream:
+#      bindings:
+#        input:
+#         destination: upload
+#         group: s1
+#        output:
+#         destination: upload
+#         group: s2
+cloud:
+  aws:
+   credentials:
+     accessKey: AKIAJ65XDQDV52UWVL2A
+     secretKey: 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
+   region:
+     auto: false
+     static: eu-west-1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+logging:
+  level:
+    org.springframework: debug

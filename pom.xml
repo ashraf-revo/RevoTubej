@@ -31,6 +31,7 @@
         <module>tube</module>
         <module>authserver</module>
         <module>zuul</module>
+        <module>converter</module>
     </modules>
     <dependencies>
         <!--<dependency>-->

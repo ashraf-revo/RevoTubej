@@ -56,9 +56,7 @@ public class MainController {
     @GetMapping("{id}.m3u8/")
     public void findOneM3u8(@PathVariable("id") Long id, HttpServletResponse response) throws IOException {
         response.getWriter().print(mediaService.findOneParsed(id));
-        response.setContentType("audio/x-mpegurl");
+        response.setContentType("application/x-mpegURL");
         response.setHeader("Content-disposition", "attachment; filename=" + id + ".m3u8");
     }
-
-
 }
