@@ -9,6 +9,14 @@ spring:
       uri: http://localhost:8081
       password: config
       username: config
+    stream:
+      bindings:
+        input:
+         destination: ToMedia
+         group: s1
+        output:
+         destination: ToHls
+         group: s2
   datasource:
     url: jdbc:mysql://localhost:3306/python?user=root&password=
   http:
@@ -35,6 +43,6 @@ security:
   oauth2:
     resource:
        user-info-uri: http://localhost:9999/uaa/user
-logging:
-  level:
-    org.springframework: debug
+#logging:
+#  level:
+#    org.springframework: debug

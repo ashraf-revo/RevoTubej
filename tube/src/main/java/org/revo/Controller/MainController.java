@@ -1,10 +1,11 @@
 package org.revo.Controller;
 
 import org.revo.Domain.Media;
-import org.revo.Service.Bento4Service;
 import org.revo.Service.MediaService;
 import org.revo.Service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.messaging.Processor;
+import org.springframework.integration.support.MessageBuilder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,16 +22,16 @@ public class MainController {
     @Autowired
     private MediaService mediaService;
     @Autowired
-    private Bento4Service bento4Service;
-    @Autowired
     private S3Service s3Service;
+    @Autowired
+    private Processor processor;
 
     @PostMapping
     private Media save(@RequestParam("file") MultipartFile file) {
         Media save = mediaService.save(file);
         new Thread(() -> {
             s3Service.saveMedia(save.getMediaKey(), file);
-            bento4Service.convertHls(save);
+            processor.output().send(MessageBuilder.withPayload(save).build());
         }).start();
         return save;
     }
