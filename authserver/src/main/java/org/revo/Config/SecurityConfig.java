@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Created by ashraf on 10/04/17.
@@ -27,9 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests().antMatchers("/home").authenticated().anyRequest().permitAll()
-                .and().formLogin().loginPage("/signin").permitAll().defaultSuccessUrl("/home")
-                .and().logout().logoutUrl("/signout")
-                .and().requestMatchers().antMatchers("/home", "/", "/done", "/active/*", "/signin", "/signup", "/signout", "/oauth/**");
+                .and().formLogin().loginPage("/signin").defaultSuccessUrl("/home")
+                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
+                .and().requestMatchers().antMatchers("/home", "/", "/done", "/active/*", "/signin", "/signup", "/signout", "/oauth/authorize", "/oauth/confirm_access");
 
     }
 
