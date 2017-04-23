@@ -9,14 +9,14 @@ spring:
       uri: http://localhost:8081
       password: config
       username: config
-#    stream:
-#      bindings:
-#        input:
-#         destination: upload
-#         group: s1
-#        output:
-#         destination: upload
-#         group: s2
+    stream:
+      bindings:
+        input:
+         destination: upload
+         group: s1
+        output:
+         destination: upload
+         group: s2
 cloud:
   aws:
    credentials:
