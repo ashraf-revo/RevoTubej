@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @MessageEndpoint
 public class Receiver {
     @StreamListener(Processor.INPUT)
-    public void receive(Message<String> message) throws InterruptedException {
-        System.out.println(message.getPayload()+"   "+message.getHeaders().entrySet().stream().map(Object::toString).collect(Collectors.joining(",")));
+    public void receive(Message<String> message) {
+        System.out.println(message.getPayload() + "   " + message.getHeaders().entrySet().stream().map(Object::toString).collect(Collectors.joining(",")));
     }
 }
