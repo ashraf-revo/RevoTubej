@@ -14,12 +14,12 @@ spring:
       ddl-auto: update
   datasource:
     url: jdbc:mysql://localhost:3306/media?user=root&password=
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka:eureka@localhost:8761/eureka/
-  instance:
-    instance-id: ${spring.application.name}:${random.value}
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+#  instance:
+#    instance-id: ${spring.application.name}:${random.value}
 org:
   revo:
     env:
@@ -34,6 +34,6 @@ org:
          password: $2a$10$nMXQGWFcd01aMI67ubPVrO5oq5rByWzlp.ZKj8mT/S7upiiyrmkhC
          phone: 1120266849
          type: 111
-logging:
-  level:
-    org.springframework: debug
+#logging:
+#  level:
+#    org.springframework: debug
