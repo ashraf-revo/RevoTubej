@@ -1,6 +1,7 @@
 server:
   port: 9999
   context-path: /uaa
+  use-forward-headers: true
 spring:
   application:
     name: uaa
