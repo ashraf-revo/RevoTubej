@@ -20,16 +20,17 @@ zuul:
     uaa:
       path: /uaa/**
       url: http://localhost:9999/uaa
+      sensitive-headers:
 security:
   oauth2:
     client:
       client-id: revo
       client-secret: revo
-      access-token-uri: http://localhost:9999/uaa/oauth/token
-      user-authorization-uri: http://localhost:9999/uaa/oauth/authorize
+      access-token-uri: http://localhost:8080/uaa/oauth/token
+      user-authorization-uri: http://localhost:8080/uaa/oauth/authorize
       scope: read
     resource:
-      user-info-uri: http://localhost:9999/uaa/user
+      user-info-uri: http://localhost:8080/uaa/user
 #logging:
 #  level:
 #    org.springframework: debug
