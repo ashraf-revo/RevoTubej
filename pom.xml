@@ -31,7 +31,7 @@
         <module>tube</module>
         <module>authserver</module>
         <module>zuul</module>
-        <module>converter</module>
+        <module>bento4</module>
     </modules>
     <dependencies>
         <!--<dependency>-->
