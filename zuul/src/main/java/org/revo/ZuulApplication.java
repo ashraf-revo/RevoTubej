@@ -24,7 +24,6 @@ public class ZuulApplication extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests().antMatchers("/uaa/**").permitAll().anyRequest().authenticated()
-                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/uaa/**")
-                .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/uaa/**");
     }
 }
