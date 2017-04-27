@@ -7,7 +7,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 //import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
@@ -23,7 +22,7 @@ public class ZuulApplication extends WebSecurityConfigurerAdapter {
 
     public void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/uaa/**").permitAll().anyRequest().authenticated()
+                .authorizeRequests().anyRequest().permitAll()
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).ignoringAntMatchers("/uaa/**");
     }
 }
