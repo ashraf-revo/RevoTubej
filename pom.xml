@@ -32,6 +32,7 @@
         <module>authserver</module>
         <module>zuul</module>
         <module>bento4</module>
+        <module>ui</module>
     </modules>
     <dependencies>
         <!--<dependency>-->
