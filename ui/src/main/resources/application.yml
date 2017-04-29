@@ -1,0 +1,19 @@
+server:
+  port: 8181
+spring:
+  application:
+    name: ui
+  cloud:
+    config:
+      uri: http://localhost:8081
+      password: config
+      username: config
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+#  instance:
+#    instance-id: ${spring.application.name}:${random.value}
+#logging:
+#  level:
+#    org.springframework: debug
