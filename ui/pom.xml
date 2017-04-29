@@ -20,7 +20,7 @@
             <resource>
                 <directory>src/main/resources/</directory>
                 <excludes>
-                    <exclude>revotube-static/**</exclude>
+                    <exclude>ui-static/**</exclude>
                     <exclude>static/*.map</exclude>
                 </excludes>
             </resource>
@@ -31,7 +31,7 @@
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.3</version>
                 <configuration>
-                    <workingDirectory>src/main/resources/revotube-static</workingDirectory>
+                    <workingDirectory>src/main/resources/ui-static</workingDirectory>
                     <npmVersion>4.4.1</npmVersion>
                     <nodeVersion>v6.10.1</nodeVersion>
                 </configuration>

@@ -1,0 +1,22 @@
+{
+  "name": "revo",
+  "authors": [
+    "ashraf <ashraf1abdelrasool@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.4",
+    "jquery": "^3.2.1",
+    "font-awesome": "^4.7.0"
+  }
+}
