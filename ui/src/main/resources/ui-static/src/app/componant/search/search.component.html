@@ -1,0 +1,24 @@
+<div class="modal white lt fade" id="search-modal" data-backdrop="false">
+  <a data-dismiss="modal" class="text-muted text-lg p-x modal-close-btn">×</a>
+  <div class="row-col">
+    <div class="p-a-lg h-v row-cell v-m">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <form role="search" method="get" id="searchform" class="searchform m-b-md">
+            <div class="input-group input-group-lg">
+              <input type="text" value="" name="s" class="form-control" placeholder="Type keyword">
+              <span class="input-group-btn">
+                                        <span id="search-loading" class="btn b-a no-shadow white hide">
+                                            <i class="fa fa-refresh fa-spin"></i></span>
+                                        <button class="btn b-a no-shadow white" type="submit">Search</button>
+                                    </span>
+            </div>
+          </form>
+          <div id="search-result" class="p-a-sm"></div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
