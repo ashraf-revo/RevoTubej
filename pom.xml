@@ -33,6 +33,7 @@
         <module>zuul</module>
         <module>bento4</module>
         <module>ui</module>
+        <module>ffmpeg</module>
     </modules>
     <dependencies>
         <!--<dependency>-->
